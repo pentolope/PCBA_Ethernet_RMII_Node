@@ -1,0 +1,16 @@
+{
+  "repo": "PCBA_Ethernet_RMII_Node",
+  "title": "100BASE-TX Ethernet Control Node",
+  "category": "networking",
+  "difficulty": 3,
+  "detail": 4,
+  "layers": "4",
+  "stress": [
+    "RMII clock/data",
+    "Ethernet magnetics",
+    "diff pairs",
+    "return paths"
+  ],
+  "benchmark_id": 15,
+  "brief_file": "BRIEF.md"
+}
