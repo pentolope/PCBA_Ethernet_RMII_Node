@@ -25,6 +25,7 @@
   "derivation": {
     "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
     "quotations_verified": 25,
+    "where_the_quotations_are": "Every one of them is in this file: fixed_requirements[].brief_evidence and brief_spec_rows[].brief_evidence. The count above is the sum of those two lists, so it is recomputable from this repository alone - re-read BRIEF.md and check each string is a substring of it. brief_spec_rows carries the quotations behind the README's spec table, which would otherwise cite the brief with the evidence left in a build script.",
     "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
   },
   "fixed_requirements": [
@@ -97,6 +98,63 @@
       "id": "REQ-14",
       "requirement": "This repository stays a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic must not accumulate inside the toolkit.",
       "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "brief_spec_rows": [
+    {
+      "aspect": "Board function",
+      "value": "100BASE-TX Ethernet control board",
+      "brief_evidence": "Create a 100BASE-TX Ethernet control board using an MCU with RMII and an external PHY."
+    },
+    {
+      "aspect": "Core architecture",
+      "value": "An MCU with RMII driving an external (not MCU-integrated) Ethernet PHY",
+      "brief_evidence": "using an MCU with RMII and an external PHY. Provide an RJ45"
+    },
+    {
+      "aspect": "RMII reference clock",
+      "value": "50 MHz RMII reference-clock architecture, as recommended by whichever devices are selected",
+      "brief_evidence": "Use a 50 MHz RMII reference-clock architecture recommended by the selected devices."
+    },
+    {
+      "aspect": "RJ45 and magnetics",
+      "value": "An RJ45 is required; integrated magnetics are asked for only \"if convenient\"",
+      "brief_evidence": "Provide an RJ45 with integrated magnetics if convenient, link/activity LEDs"
+    },
+    {
+      "aspect": "Status indication",
+      "value": "Link and activity LEDs",
+      "brief_evidence": "if convenient, link/activity LEDs, USB-C for service power/debug"
+    },
+    {
+      "aspect": "Service power and debug port",
+      "value": "USB-C, serving service power and debug",
+      "brief_evidence": "link/activity LEDs, USB-C for service power/debug, and a small expansion header."
+    },
+    {
+      "aspect": "Expansion",
+      "value": "A small expansion header",
+      "brief_evidence": "USB-C for service power/debug, and a small expansion header."
+    },
+    {
+      "aspect": "Ethernet pair routing",
+      "value": "Controlled differential pairs from PHY to magnetics",
+      "brief_evidence": "Route Ethernet pairs as controlled differential pairs from PHY to magnetics"
+    },
+    {
+      "aspect": "PHY analog supplies",
+      "value": "Must be kept quiet",
+      "brief_evidence": "from PHY to magnetics, keep PHY analog supplies quiet, and maintain continuous reference planes"
+    },
+    {
+      "aspect": "Reference planes",
+      "value": "Continuous under RMII and other high-speed signals",
+      "brief_evidence": "maintain continuous reference planes under RMII/high-speed signals."
+    },
+    {
+      "aspect": "Layer count",
+      "value": "Four layers, stated by the brief as required",
+      "brief_evidence": "maintain continuous reference planes under RMII/high-speed signals. Four layers required."
     }
   ],
   "open_decisions": [
